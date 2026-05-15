@@ -1,0 +1,42 @@
+name: Build Android APK
+on:
+  push:
+    branches: [ "main", "رئيسي" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Cordova
+        run: npm install -g cordova
+
+      - name: Create Cordova Android Project
+        run: |
+          cordova create my-app com.example.myapp MyApp
+          cd my-app
+          cordova platform add android
+          rm -rf www/*
+          
+      - name: Copy Web Files Cleanly
+        run: |
+          find . -maxdepth 1 ! -name '.' ! -name 'my-app' ! -name '.github' ! -name '.git' -exec cp -r {} my-app/www/ \;
+
+      - name: Build Cordova Project
+        run: |
+          cd my-app
+          cordova build android --debug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-app-debug.apk
+          path: my-app/platforms/android/app/build/outputs/apk/debug/app-debug.apk
+
