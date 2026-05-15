@@ -1,0 +1,1170 @@
+/* استدعاء خطوط عربية متنوعة */
+
+ @import url('https://fonts.googleapis.com/css2?family=Amiri&family=Cairo&family=Tajawal&family=Reem+Kufi&family=Almarai&family=El+Messiri&family=Changa&family=Aref+Ruqaa&family=Lalezar&family=Kufam&family=Lemonada&family=Mirza&family=Scheherazade+New&family=Vibes&family=Harmattan&display=swap');
+
+/* كود سحري يطبق الخط اللي هنختاره من القائمة على التطبيق كله */
+.font-cairo { font-family: 'Cairo', sans-serif !important; }
+.font-tajawal { font-family: 'Tajawal', sans-serif !important; }
+.font-amiri { font-family: 'Amiri', serif !important; }
+.font-kufi { font-family: 'Reem Kufi', sans-serif !important; }
+.font-almarai { font-family: 'Almarai', sans-serif !important; }
+.font-messiri { font-family: 'El Messiri', sans-serif !important; }
+.font-changa { font-family: 'Changa', sans-serif !important; }
+.font-ruqaa { font-family: 'Aref Ruqaa', serif !important; }
+.font-lalezar { font-family: 'Lalezar', cursive !important; }
+.font-kufam { font-family: 'Kufam', sans-serif !important; }
+.font-lemonada { font-family: 'Lemonada', cursive !important; }
+.font-mirza { font-family: 'Mirza', serif !important; }
+.font-scheherazade { font-family: 'Scheherazade New', serif !important; }
+.font-vibes { font-family: 'Vibes', cursive !important; }
+.font-harmattan { font-family: 'Harmattan', sans-serif !important; }
+
+ 
+ 
+ 
+ 
+ :root {
+    --bg-color: #f5f5f5;
+    --card-bg: rgba(255, 255, 255, 0.15);
+    --text-color: #ffffff;
+    --primary-color: #2e7d32;
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --neon-accent: #0B9800;
+    --glass-effect: blur(20px) saturate(150%);
+    --nav-inactive: rgba(255, 255, 255, 0.4);
+    --nav-active-bg: rgba(116, 241, 217, 0.15);
+    --nav-active-color: #3BA700;
+}
+
+.dark-mode {
+    --bg-color: #121212;
+    --card-bg: rgba(0, 0, 0, 0.4);
+    --text-color: #ffffff;
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    direction: rtl;
+    transition: 0.5s;
+    overflow-x: hidden;
+    padding-bottom: 95px;
+}
+
+.app-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+/* --- شريط الأدوات العلوي --- */
+.top-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 12px 15px;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: var(--glass-effect);
+    -webkit-backdrop-filter: var(--glass-effect);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 10px;
+}
+
+.controls-group { display: flex; align-items: center; gap: 8px; }
+
+.bg-changer-btn, #theme-toggle, .font-btn, #back-btn, #sound-toggle {
+    padding: 6px 10px;
+    min-width: 35px;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid var(--glass-border) !important;
+    color: white !important;
+    border-radius: 12px !important;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+/* --- كارت الساعة والمواقيت --- */
+.prayer-times-card {
+    background: rgba(255, 255, 255, 0.12) !important; 
+    backdrop-filter: var(--glass-effect) !important;
+    -webkit-backdrop-filter: var(--glass-effect);
+    padding: 15px;
+    border-radius: 25px !important;
+    margin-bottom: 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2) !important;
+}
+
+.digital-clock {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: var(--neon-accent);
+    text-shadow: 0 0 15px rgba(116, 241, 217, 0.5);
+}
+
+.prayer-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 4px;
+    margin-top: 15px;
+}
+
+.prayer-item {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 8px 2px;
+    border-radius: 12px;
+    font-size: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.prayer-item span {
+    display: block;
+    color: var(--neon-accent);
+    font-weight: bold;
+    margin-top: 5px;
+    font-size: 11px;
+}
+
+/* --- تطوير قائمة المهام الزجاجية الجديدة --- */
+.tasks-wrapper {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.task-input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#task-input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 12px 15px;
+    color: white;
+    outline: none;
+    font-size: 14px;
+}
+
+#task-input::placeholder { color: rgba(255,255,255,0.5); }
+
+#add-task-btn {
+    background: var(--neon-accent) !important;
+    color: #121212 !important;
+    border: none;
+    border-radius: 15px;
+    padding: 0 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    margin-bottom: 12px;
+    padding: 15px;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.4s all ease;
+}
+
+.task-item.completed {
+    background: rgba(116, 241, 217, 0.1);
+    border-color: rgba(116, 241, 217, 0.3);
+}
+
+.task-item.completed span {
+    text-decoration: line-through;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* مربع الصح الشيك */
+.task-checkbox {
+    width: 36px!important;
+    height: 36px!important;
+    border: 2px solid var(--neon-accent);
+    border-radius: 10px;
+    margin-left: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.delete-task {
+    background: none;
+    border: none;
+    color: #ff5e5e;
+    font-size: 24px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-right: auto !important;
+}
+.delete-task:hover { transform: scale(1.2); }
+
+
+.task-checkbox.checked {
+    background: var(--neon-accent);
+}
+
+.task-checkbox.checked::after {
+    content: '\eb7b'; /* Remix Icon Check */
+    font-family: 'remixicon';
+    color: #121212;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* --- باقي التنسيقات (الشبكة، الأزرار، الشريط السفلي) بدون تغيير --- */
+.categories-grid, #surah-container {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+    padding: 10px 0;
+}
+
+#azkar-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+    padding: 10px 0;
+}
+
+.cat-btn, .card {
+    background: rgba(255, 255, 255, 0.12) !important; 
+    backdrop-filter: var(--glass-effect) !important;
+    -webkit-backdrop-filter: var(--glass-effect);
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 33px !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2) !important;
+    color: white !important;
+    padding: 20px; 
+    text-align: center;
+    cursor: pointer;
+    transition: 0.4s all ease;
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#azkar-list .card { width: 100% !important; min-height: auto !important; box-sizing: border-box; }
+
+.cat-btn:hover {
+    background: rgba(255, 255, 255, 0.25) !important;
+    transform: translateY(-3px);
+    border: 1px solid var(--neon-accent) !important;
+}
+
+.count-circle {
+    width: 100% !important;
+    height: 55px !important;
+    background: rgba(116, 241, 217, 0.2) !important;
+    color: var(--neon-accent) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 24px;
+    cursor: pointer;
+    border: 1px solid var(--neon-accent) !important;
+    border-radius: 15px !important;
+    margin-top: 15px;
+    transition: 0.2s;
+}
+
+.count-circle:active {
+    transform: scale(0.95);
+    background: var(--neon-accent) !important;
+    color: #000 !important;
+}
+
+#audio-player-bar {
+    position: fixed;
+    
+    bottom: 90px;
+    left: 5%;
+    width: 90%;
+    /* التأثير الزجاجي */
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(15px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
+    
+    padding: 15px;
+    border-radius: 25px;
+    /* حدود زجاجية خفيفة */
+    border: 5px solid rgba(255, 255, 255, 0.2) !important;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2500;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* تحسين شكل شريط التقدم (الـ Seek Bar) */
+#seek-slider {
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;
+    accent-color: var(--neon-accent);
+    /* عشان يفضل واخد لون التيفاني بتاعك */
+    cursor: pointer;
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 75px; 
+    background: rgba(255, 255, 255, 0.05); 
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 2000;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 -10px 35px rgba(0, 0, 0, 0.4);
+    padding: 0 12px;
+    box-sizing: border-box;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--nav-inactive);
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.nav-item i { font-size: 24px; }
+.nav-item p { font-size: 13px; margin: 0; font-weight: bold; display: none; }
+
+.nav-item.active {
+    background-color: var(--nav-active-bg);
+    color: var(--nav-active-color);
+    flex-direction: row; 
+    gap: 10px;
+    padding: 10px 22px;
+    box-shadow: 0 0 15px rgba(116, 241, 217, 0.2);
+    border: 1px solid rgba(116, 241, 217, 0.3);
+}
+
+.nav-item.active p { display: block; text-shadow: 0 0 8px rgba(116, 241, 217, 0.3); }
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 3000;
+    top: 0;
+    right: 0;
+    background-color: rgba(18, 18, 18, 0.98);
+    backdrop-filter: blur(15px);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 80px;
+    text-align: right;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    font-size: 45px !important;
+    color: var(--neon-accent);
+}
+
+
+
+
+
+.menu-item {
+    /* التعديلات الأساسية للتمرير الأفقي */
+    display: flex !important;
+    flex-direction: column; /* يخلي الأيقونة فوق والكلام تحتها */
+    align-items: center;
+    justify-content: center;
+    
+    /* منع التمدد والانكماش */
+    flex: 0 0 auto !important; 
+    width: 90px; /* عرض مناسب لكل أيقونة */
+    
+    /* المسافات */
+    padding: 10px 1px; 
+    margin: 0 0px;
+    
+    /* التنسيق الجمالي */
+    color: white;
+    cursor: pointer;
+    font-size: 14px; /* صغرنا الخط شوية عشان يليق مع الأيقونات */
+    text-align: center;
+    border-bottom: none; /* شلنا الخط اللي كان تحت */
+
+}
+
+/* لو حابة الكلام ينزل سطرين لو طويل */
+.menu-item span {
+    white-space: normal;
+    line-height: 1.2;
+    margin-top: 5px;
+}
+
+
+
+
+
+
+#overlay {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 2500;
+}
+/* تنسيق الحاوية اللي جامعة النص والزرار */
+/* الحاوية الكبيرة */
+.sebha-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* تنسيق الرقم */
+.sebha-number {
+    font-size: 60px; /* خليه كبير وواضح */
+    font-weight: bold;
+    color: var(--neon-accent);
+    text-shadow: 0 0 20px var(--neon-accent); /* لمسة نيون */
+    margin-bottom: 10px;
+}
+
+/* زرار التسبيح الأساسي */
+.sebha-main-btn {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* شكل دائري */
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px); /* تأثير زجاجي */
+    border: 3px solid var(--neon-accent) !important;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s all ease;
+    box-shadow: 0 0 15px rgba(116, 241, 217, 0.2);
+}
+
+.sebha-main-btn:active {
+    transform: scale(0.9); /* حركة "ضغطة" لما تسبحي */
+    background: var(--neon-accent) !important;
+    color: #121212;
+}
+#sebha-section {
+    display: none;
+    /* خليها مخفية في الطبيعي */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+}
+
+/* إعدادات موحدة لكل كروت أوقات الصلاة */
+.prayer-item {
+    background-size: cover !important;
+    background-position: center !important;
+    position: relative;
+    overflow: hidden;
+    min-height: 80px; /* زيادة الطول شوية عشان الصورة تبان */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    z-index: 1;
+}
+
+/* إضافة طبقة تعتيم خفيفة خلف النص عشان يفضل واضح فوق الصورة */
+.prayer-item::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.3); /* تعتيم بنسبة 30% */
+    z-index: -1;
+}
+
+/* ربط كل كرت بصورته - تأكدي من أسماء الصور في فولدر الـ images */
+.fajr-card { background-image: url('fajr.png'); }
+.dhuhr-card { background-image: url('duhr.png'); }
+.asr-card { background-image: url('asr.png'); }
+.maghrib-card { background-image: url('magreb.png'); }
+.isha-card { background-image: url('isha.png'); }
+#surah-search {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: 0.3s all ease;
+}
+
+#surah-search:focus {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(116, 241, 217, 0.3);
+    border-color: #74F1D9;
+}
+/* كود تغيير خلفية الأحاديث ببساطة */
+
+/* 1. لما نفتح قائمة تصنيفات الأحاديث */
+/* تنسيق الكارت الزجاجي للحديث */
+.hadith-card {
+    background: rgba(255, 255, 255, 0.1); /* لون أبيض شفاف جداً */
+    backdrop-filter: blur(15px); /* أهم سطر: ده اللي بيعمل تأثير الزجاج */
+    -webkit-backdrop-filter: blur(15px); /* عشان يشتغل على كل المتصفحات */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* إطار خفيف كأنه حرف زجاج */
+    border-radius: 20px; /* حواف ناعمة */
+    padding: 25px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); /* ظل خفيف عشان يبان إنه بارز */
+    margin: 20px auto;
+    width: 90%;
+    text-align: center;
+}
+
+/* تنسيق الكلام جوه الكارت عشان يبان بوضوح */
+#hadith-text {
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* ظل للكلام عشان يقرأ بسهولة */
+    font-weight: 500;
+    
+}
+
+
+
+
+/* تنسيق قائمة المساجد */
+.mosque-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(116, 241, 217, 0.2);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: right;
+}
+
+.mosque-item:hover {
+    background: rgba(116, 241, 217, 0.1);
+    transform: translateX(-5px);
+}
+
+.mosque-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mosque-info span {
+    font-size: 16px;
+    color: white;
+}
+
+.loader-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.loader {
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top: 3px solid #74F1D9;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 10px;
+}
+
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+
+
+
+
+
+/* تنسيق القائمة الأفقية */
+/* الحاوية الكبيرة - لازم تكون flex عشان يمشوا بالعرض */
+/* نسخة مدمجة ومنظمة للقائمة الأفقية */
+.hadith-card {
+    padding: 10px;
+    border-radius: 15px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.video-wrapper {
+    width: 100%;
+    height: 220px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    transform: scale(0.5);
+    transform-origin: 0 0;
+    image-rendering: -webkit-optimize-contrast;
+    border-radius: 20px;
+}
+
+.video-title {
+    color: white;
+    margin-top: 12px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+@media (max-width: 500px) {
+    .videos-grid-container {
+        grid-template-columns: 1fr;
+        /* يرجع لفيديو واحد بس في الصف لو الشاشة أصغر من 500 بكسل */
+    }
+}
+/* تحسين أداء الشبكة بالكامل */
+.videos-grid-container {
+    contain: content;
+}
+
+/* تحسين البطاقة الواحدة */
+.hadith-card {
+    content-visibility: auto; /* تجعل المتصفح لا يرسم البطاقة إلا عند الاقتراب منها */
+    contain-intrinsic-size: 1px 300px; /* تعطي مساحة تقديرية للبطاقة قبل تحميلها */
+    will-change: transform; /* تحضر المعالج للتعامل مع الحركة بسلاسة */
+}
+/* تثبيت أول فيديو في القائمة */
+/* الكلاس الذي سيضيفه الجافا سكريبت للفيديو المشغل */
+/* تنسيق الفيديو عندما يصبح مشغلاً وثابتاً */
+/* الكلاس الذي سيثبت الفيديو */
+/* عندما يتم تفعيل فيديو معين */
+
+
+/* حاوية ثابتة فوق خالص */
+/* 1. تهيئة الصفحة لتكون مثل يوتيوب */
+/* وضع يوتيوب: تقسيم الشاشة */
+/* تنسيق زر المفضلة اللي ضفناه برمجياً */
+.favorite-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 100;
+    width: 35px;
+    height: 35px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s all;
+}
+
+.favorite-btn i {
+    color: white;
+    font-size: 1.2rem;
+}
+
+.favorite-btn.active i {
+    color: #ff4757 !important;
+    /* اللون الأحمر */
+}
+
+
+
+
+
+
+.hijri-container {
+    text-align: center;
+    margin-top: 12px;
+}
+
+#hijri-text {
+    color: var(--neon-accent);
+    /* لون الساعة الفسفوري */
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: 'Cairo', sans-serif;
+    text-shadow: 0 0 8px rgba(0, 255, 243, 0.4);
+}
+
+
+
+
+
+/* شكل القلب العادي */
+.heart-btn {
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px;
+}
+
+.heart-btn i {
+    font-size: 30px; /* كبري أو صغري الحجم من هنا */
+    color: #ffffff; /* لون القلب العادي */
+    transition: 0.3s;
+}
+
+/* لون القلب لما تدوسي عليه (ينور) */
+.heart-btn.active i {
+    color: #ff4757; /* اللون الأحمر */
+    font-weight: bold;
+}
+
+
+
+
+
+/* تعديل حاوية المودال الأساسية لضمان التوسط */
+/* تأكدي أن حاوية المحتوى تسمح بتحديد المواقع بداخلها */
+/* 1. المربع الأبيض الشفاف الصغير */
+/* الحاوية الخلفية للمودال */
+/* تحويل النافذة لصفحة كاملة بخلفية روحانية */
+/* تحويل النافذة لصفحة كاملة بخلفية روحانية */
+/* --- نافذة العرض الرئيسية (المودال) --- */
+.custom-modal {
+    position: fixed;
+    z-index: 100000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #0f172a 0%, #064e3b 100%);
+    
+    /* شلنا !important عشان الجافا سكريبت يشتغل صح */
+    display: none; 
+    
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    animation: slideUp 0.4s ease-out;
+}
+
+/* كلاس مساعد يتم إضافته بالجافا سكريبت لإظهار النافذة */
+.custom-modal.active-modal {
+    display: flex !important;
+}
+
+/* تأكدي إن السكشن الداخلي للقرآن أو الأسماء مخفي افتراضياً داخل المودال */
+#quran-reader-section, #names-of-allah-section {
+    display: none;
+    width: 100%;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* --- محتوى المودال الداخلي --- */
+.modal-content {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    width: 100% !important;
+    max-width: 100% !important; 
+    color: #f8fafc; 
+    text-align: center;
+    position: relative;
+    padding: 80px 15px 120px 15px; 
+    box-shadow: none !important;
+    box-sizing: border-box;
+}
+
+/* --- زر الإغلاق الاحترافي (X) --- */
+.close-btn {
+    position: fixed !important; 
+    top: 25px;
+    right: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffd700 !important; /* اللون الذهبي */
+    font-size: 28px;
+    z-index: 100001;
+    cursor: pointer;
+    transition: 0.3s all ease;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    line-height: 1;
+}
+
+.close-btn:hover {
+    background: rgba(255, 215, 0, 0.2);
+    transform: scale(1.1) rotate(90deg);
+    color: #fff !important;
+}
+
+/* --- تنسيق نصوص القرآن أو الأسماء --- */
+.quran-page .ayah-text, .names-display {
+    font-family: 'Amiri', serif !important; 
+    font-size: 1.8rem; 
+    line-height: 2.2; 
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    padding: 20px;
+}
+
+/* --- شريط التمرير (الاسكرول) الأنيق --- */
+.custom-modal::-webkit-scrollbar {
+    width: 6px;
+}
+
+.custom-modal::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.custom-modal::-webkit-scrollbar-thumb {
+    background: rgba(255, 215, 0, 0.3);
+    border-radius: 10px;
+}
+
+.custom-modal::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 215, 0, 0.5);
+}
+
+/* --- كارت أسماء الله الحسنى (لو حابة تعرضيهم ككروت جوه المودال) --- */
+.name-card-inside {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    border-radius: 15px;
+    padding: 15px;
+    margin: 10px;
+    display: inline-block;
+    min-width: 120px;
+    transition: 0.3s;
+}
+
+.name-card-inside:hover {
+    border-color: #ffd700;
+    background: rgba(255, 215, 0, 0.05);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* تنسيق خاص بالمساعد الذكي فقط لعدم التداخل */
+/* تصميم زرار التسبيح النيوني */
+.main-counter-btn {
+    width: 220px;
+    height: 220px;
+    margin: 40px auto;
+    background: radial-gradient(circle, #1e293b, #0f172a);
+    border: 5px solid #74F1D9;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #74F1D9;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 0 20px rgba(116, 241, 217, 0.3), inset 0 0 15px rgba(116, 241, 217, 0.2);
+    transition: all 0.3s ease;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    animation: pulse-border 2s infinite; /* تأثير النبض */
+}
+
+.main-counter-btn:active {
+    transform: scale(0.92); /* تأثير الضغط */
+    box-shadow: 0 0 35px rgba(116, 241, 217, 0.6);
+}
+
+@keyframes pulse-border {
+    0% { box-shadow: 0 0 0 0 rgba(116, 241, 217, 0.4); }
+    70% { box-shadow: 0 0 0 20px rgba(116, 241, 217, 0); }
+    0% { box-shadow: 0 0 0 0 rgba(116, 241, 217, 0); }
+}
+
+
+
+
+
+.khatma-container {
+    background: rgba(255, 255, 255, 0.05);
+    margin: 15px 20px;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid rgba(116, 241, 217, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.khatma-container:active {
+    transform: scale(0.98);
+    background: rgba(116, 241, 217, 0.1);
+}
+
+.khatma-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.khatma-icon {
+    font-size: 1.8rem;
+    background: rgba(116, 241, 217, 0.1);
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.khatma-text h3 {
+    color: #74F1D9;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.khatma-text p {
+    color: #ccc;
+    margin: 5px 0 0 0;
+    font-size: 0.8rem;
+}
+
+.khatma-arrow {
+    color: #74F1D9;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+/* حاوية قائمة المستويات */
+#levelsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 5px;
+    max-height: 70vh;
+    overflow-y: auto;
+    
+    justify-content: center;
+    align-content: start;
+    /* التغيير هنا: خليها start بدل center */
+    
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
+
+/* تنسيق إضافي لتمييز زر النووية مع الحفاظ على التناسق */
+/* تحسين كارت الحديث ليكون مريحاً وأقل توهجاً */
+.hadith-item-card {
+    background: rgba(255, 255, 255, 0.03) !important; /* خلفية مطفية لراحة العين */
+    backdrop-filter: blur(12px) !important; /* تعتيم الخلفية لتركيز البصر */
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08) !important; /* حدود رقيقة جداً */
+    border-radius: 20px;
+    padding: 22px; /* زيادة التباعد الداخلي */
+    text-align: right;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 10px;
+}
+
+/* حالة إتمام القراءة - نيون هادئ وليس مزعجاً */
+.completed-hadith {
+    border-right: 5px solid var(--neon-accent) !important;
+    background: rgba(11, 152, 0, 0.02) !important; /* لون خفيف جداً خلف الكارت */
+    opacity: 1 !important; /* نرفع الشفافية لسهولة القراءة */
+}
+
+/* تنسيق العناوين بلون أبيض مائل للرمادي لتقليل إجهاد العين */
+.hadith-title {
+    color: #e0e0e0 !important; 
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+}
+
+/* تنسيق نص الحديث (الخط الأميري) مع زيادة المسافات بين الأسطر */
+.hadith-text-preview {
+    color: rgba(255, 255, 255, 0.85); /* لون أبيض هادئ */
+    font-family: 'Amiri', serif;
+    /* صغرنا الخط هنا من 1.25 لـ 1.05 أو 1rem */
+    font-size: 1.05rem !important; 
+    /* الـ line-height مهم جداً لما تصغر الخط عشان المسافات بين السطور */
+    line-height: 1.6 !important; 
+    margin-bottom: 15px;
+    text-align: justify; /* بيخلي سطور الكلام متساوية من الجانبين وشكلها أنظف */
+    direction: rtl;
+}
+
+/* تحسين الأزرار لتكون أكثر نعومة */
+.btn-done {
+    background: rgba(11, 152, 0, 0.15) !important; /* خلفية نيون شفافة */
+    border: 1px solid var(--neon-accent) !important;
+    color: var(--neon-accent) !important;
+    padding: 8px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.85rem;
+    transition: 0.3s ease;
+}
+
+.btn-done:hover {
+    background: var(--neon-accent) !important;
+    color: #000 !important;
+    box-shadow: 0 0 15px var(--neon-accent);
+}
+
+.btn-sharh {
+    background: rgba(255, 255, 255, 0.07) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #ccc;
+    padding: 8px 18px;
+    border-radius: 12px;
+    margin-left: 10px;
+}
+
+
+
+
+
+
+
+/* نافذة الأذان المنبثقة */
+.adhan-full-screen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: radial-gradient(circle, #064e3b 0%, #020617 100%);
+    z-index: 999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    backdrop-filter: blur(20px);
+}
+
+.adhan-content {
+    text-align: center;
+    animation: fadeInScale 0.8s ease-out;
+}
+
+.mosque-animation {
+    font-size: 80px;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+}
+
+.stop-btn {
+    background: transparent;
+    border: 2px solid #74F1D9;
+    color: #74F1D9;
+    padding: 12px 40px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 40px;
+    transition: 0.3s;
+}
+
+.stop-btn:hover {
+    background: #74F1D9;
+    color: #000;
+    box-shadow: 0 0 20px #74F1D9;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
